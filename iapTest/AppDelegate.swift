@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import StoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PurchaseManagerDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // デリゲート設定
+        PurchaseManager.sharedManager().delegate = self
+        // オブザーバー登録
+        SKPaymentQueue.default().add(PurchaseManager.sharedManager())
+        
+        
         return true
     }
 
@@ -42,5 +50,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    
+    // 課金終了(前回アプリ起動時課金処理が中断されていた場合呼ばれる)
+    func purchaseManager(_ purchaseManager: PurchaseManager!, didFinishUntreatedPurchaseWithTransaction transaction: SKPaymentTransaction!, decisionHandler: ((_ complete: Bool) -> Void)!) {
+        print("#### didFinishUntreatedPurchaseWithTransaction ####")
+        // TODO: コンテンツ解放処理
+        //コンテンツ解放が終了したら、この処理を実行(true: 課金処理全部完了, false 課金処理中断)
+        decisionHandler(true)
+    }
+    func applicationWillTerminate(application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        //////////////// ▼▼ 追加 ▼▼ ////////////////
+        // オブザーバー登録解除
+        SKPaymentQueue.default().remove(PurchaseManager.sharedManager());
+        //////////////// ▲▲ 追加 ▲▲ ////////////////
+    }
 }
 

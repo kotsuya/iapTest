@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E18910321FD5439700388F3F /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18910311FD5439700388F3F /* MyCustomCell.swift */; };
 		E1DE4FC91FD50604001642EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4FC81FD50604001642EB /* AppDelegate.swift */; };
 		E1DE4FCB1FD50604001642EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4FCA1FD50604001642EB /* ViewController.swift */; };
 		E1DE4FCE1FD50604001642EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DE4FCC1FD50604001642EB /* Main.storyboard */; };
 		E1DE4FD01FD50604001642EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1DE4FCF1FD50604001642EB /* Assets.xcassets */; };
 		E1DE4FD31FD50604001642EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DE4FD11FD50604001642EB /* LaunchScreen.storyboard */; };
+		E1DE4FDC1FD50B9F001642EB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1DE4FDB1FD50B9F001642EB /* StoreKit.framework */; };
+		E1DE4FDE1FD50BD9001642EB /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4FDD1FD50BD9001642EB /* ProductManager.swift */; };
+		E1DE4FE01FD50BFE001642EB /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE4FDF1FD50BFE001642EB /* PurchaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E18910311FD5439700388F3F /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		E1DE4FC51FD50604001642EB /* iapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1DE4FC81FD50604001642EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1DE4FCA1FD50604001642EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		E1DE4FCF1FD50604001642EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1DE4FD21FD50604001642EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1DE4FD41FD50604001642EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1DE4FDB1FD50B9F001642EB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E1DE4FDD1FD50BD9001642EB /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
+		E1DE4FDF1FD50BFE001642EB /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1DE4FDC1FD50B9F001642EB /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,7 @@
 			children = (
 				E1DE4FC71FD50604001642EB /* iapTest */,
 				E1DE4FC61FD50604001642EB /* Products */,
+				E1DE4FDA1FD50B9F001642EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +70,19 @@
 				E1DE4FCF1FD50604001642EB /* Assets.xcassets */,
 				E1DE4FD11FD50604001642EB /* LaunchScreen.storyboard */,
 				E1DE4FD41FD50604001642EB /* Info.plist */,
+				E1DE4FDD1FD50BD9001642EB /* ProductManager.swift */,
+				E1DE4FDF1FD50BFE001642EB /* PurchaseManager.swift */,
+				E18910311FD5439700388F3F /* MyCustomCell.swift */,
 			);
 			path = iapTest;
+			sourceTree = "<group>";
+		};
+		E1DE4FDA1FD50B9F001642EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1DE4FDB1FD50B9F001642EB /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +118,11 @@
 					E1DE4FC41FD50604001642EB = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,6 +163,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1DE4FCB1FD50604001642EB /* ViewController.swift in Sources */,
+				E1DE4FDE1FD50BD9001642EB /* ProductManager.swift in Sources */,
+				E18910321FD5439700388F3F /* MyCustomCell.swift in Sources */,
+				E1DE4FE01FD50BFE001642EB /* PurchaseManager.swift in Sources */,
 				E1DE4FC91FD50604001642EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,10 +304,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UDWJ872ZCN;
+				DEVELOPMENT_TEAM = PCGV2BY5QK;
 				INFOPLIST_FILE = iapTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eys-style.iapTest";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kotsuya.IAPTEST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,10 +319,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UDWJ872ZCN;
+				DEVELOPMENT_TEAM = PCGV2BY5QK;
 				INFOPLIST_FILE = iapTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eys-style.iapTest";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kotsuya.IAPTEST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
